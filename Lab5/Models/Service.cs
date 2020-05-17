@@ -12,6 +12,8 @@ namespace Lab5.Models
         public string Name_Service { get; set; }
         [Required]
         public int Sum { get; set; }
+        [Required]
+        public int ClientId { get; set; }
         public virtual Client Client { get; set; }
     }
 }

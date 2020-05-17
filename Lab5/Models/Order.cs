@@ -15,6 +15,8 @@ namespace Lab5.Models
         public string Adress { get; set; }
         [Required]
         public DateTime Data_of_Complection { get; set; }
+        [Required]
+        public int ClientId { get; set; }
         public virtual Client Client { get; set; }
         [ForeignKey("OrderId")]
         public virtual List<Material> Material { set; get; }

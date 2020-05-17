@@ -35,33 +35,37 @@ namespace Lab5.BusinessLogic
             clientService.Create(client);
         }
 
-        public void CreateMaterial(string Name, int Sum)
+        public void CreateMaterial(string Name, int Sum, int orderId, int supplierId)
         {
             Material material = new Material()
             {
                 Name_Material = Name,
-                Sum = Sum
+                Sum = Sum,
+                OrderId = orderId,
+                SupplierId = supplierId
             };
             materialService.Create(material);
         }
 
-        public void CreateOrder(string Name, string Adress, DateTime date)
+        public void CreateOrder(string Name, string Adress, DateTime date, int clientId)
         {
             Order order = new Order()
             {
                 Name_Order = Name,
                 Adress = Adress,
-                Data_of_Complection = date
+                Data_of_Complection = date,
+                ClientId = clientId
             };
             orderService.Create(order);
         }
 
-        public void CreateService(string Name, int Sum)
+        public void CreateService(string Name, int Sum, int clientId)
         {
             Service service = new Service()
             {
                 Name_Service = Name,
-                Sum = Sum
+                Sum = Sum,
+                ClientId = clientId
             };
             serviceSrvices.Create(service);
         }

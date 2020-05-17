@@ -47,7 +47,7 @@ namespace Lab5.Migrations
                     Name_Order = table.Column<string>(nullable: false),
                     Adress = table.Column<string>(nullable: false),
                     Data_of_Complection = table.Column<DateTime>(nullable: false),
-                    ClientId = table.Column<int>(nullable: true)
+                    ClientId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -57,7 +57,7 @@ namespace Lab5.Migrations
                         column: x => x.ClientId,
                         principalTable: "Clients",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -68,7 +68,7 @@ namespace Lab5.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name_Service = table.Column<string>(nullable: false),
                     Sum = table.Column<int>(nullable: false),
-                    ClientId = table.Column<int>(nullable: true)
+                    ClientId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -78,7 +78,7 @@ namespace Lab5.Migrations
                         column: x => x.ClientId,
                         principalTable: "Clients",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -89,8 +89,8 @@ namespace Lab5.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name_Material = table.Column<string>(nullable: false),
                     Sum = table.Column<int>(nullable: false),
-                    OrderId = table.Column<int>(nullable: true),
-                    SupplierId = table.Column<int>(nullable: true)
+                    OrderId = table.Column<int>(nullable: false),
+                    SupplierId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -100,13 +100,13 @@ namespace Lab5.Migrations
                         column: x => x.OrderId,
                         principalTable: "Orders",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Materials_Suppliers_SupplierId",
                         column: x => x.SupplierId,
                         principalTable: "Suppliers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
