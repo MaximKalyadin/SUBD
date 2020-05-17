@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lab5.Migrations
 {
     [DbContext(typeof(SubdLab5DataBase))]
-    [Migration("20200507093504_Lab5")]
+    [Migration("20200517090640_Lab5")]
     partial class Lab5
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -93,6 +93,10 @@ namespace Lab5.Migrations
 
                     b.Property<DateTime>("Data_of_Complection")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Name_Order")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

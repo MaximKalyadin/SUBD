@@ -44,6 +44,7 @@ namespace Lab5.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Name_Order = table.Column<string>(nullable: false),
                     Adress = table.Column<string>(nullable: false),
                     Data_of_Complection = table.Column<DateTime>(nullable: false),
                     ClientId = table.Column<int>(nullable: true)

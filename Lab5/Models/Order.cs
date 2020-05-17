@@ -10,6 +10,8 @@ namespace Lab5.Models
     {
         public int Id { get; set; }
         [Required]
+        public string Name_Order { get; set; }
+        [Required]
         public string Adress { get; set; }
         [Required]
         public DateTime Data_of_Complection { get; set; }

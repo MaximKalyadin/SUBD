@@ -92,6 +92,10 @@ namespace Lab5.Migrations
                     b.Property<DateTime>("Data_of_Complection")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Name_Order")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ClientId");
