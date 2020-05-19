@@ -35,37 +35,37 @@ namespace Lab5.BusinessLogic
             clientService.Create(client);
         }
 
-        public void CreateMaterial(string Name, int Sum, int orderId, int supplierId)
+        public void CreateMaterial(string Name, int Sum, int OrderId, int SupplierId)
         {
             Material material = new Material()
             {
                 Name_Material = Name,
                 Sum = Sum,
-                OrderId = orderId,
-                SupplierId = supplierId
+                OrderId = OrderId,
+                SupplierId = SupplierId
             };
             materialService.Create(material);
         }
 
-        public void CreateOrder(string Name, string Adress, DateTime date, int clientId)
+        public void CreateOrder(string Name, string Adress, DateTime date, int ClientId)
         {
             Order order = new Order()
             {
                 Name_Order = Name,
                 Adress = Adress,
                 Data_of_Complection = date,
-                ClientId = clientId
+                ClientId = ClientId
             };
             orderService.Create(order);
         }
 
-        public void CreateService(string Name, int Sum, int clientId)
+        public void CreateService(string Name, int Sum, int ClientId)
         {
             Service service = new Service()
             {
                 Name_Service = Name,
                 Sum = Sum,
-                ClientId = clientId
+                ClientId = ClientId
             };
             serviceSrvices.Create(service);
         }
@@ -81,6 +81,16 @@ namespace Lab5.BusinessLogic
             suppliersService.Create(supplier);
         }
 
+        public void ReadClient()
+        {
+            var list = clientService.Read();
+
+            foreach (var p in list)
+            {
+                Console.Write(p.Id + " " + p.Name + " " + p.Surname);
+                Console.WriteLine();
+            }
+        }
 
     }
 }

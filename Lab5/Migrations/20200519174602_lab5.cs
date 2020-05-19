@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Lab5.Migrations
 {
-    public partial class Lab5 : Migration
+    public partial class lab5 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

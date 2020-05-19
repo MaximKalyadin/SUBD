@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lab5.Migrations
 {
     [DbContext(typeof(SubdLab5DataBase))]
-    [Migration("20200517135110_Lab5")]
-    partial class Lab5
+    [Migration("20200519174602_lab5")]
+    partial class lab5
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
