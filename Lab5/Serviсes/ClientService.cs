@@ -51,5 +51,37 @@ namespace Lab5.Serviсes
         {
             return db.Clients.ToList();
         }
+
+        public void OrderClientName()
+        {
+            var client = db.Clients.OrderBy(c => c.Surname);
+            foreach (Client c in client)
+            {
+                Console.Write(c.Surname + " " + c.Name + " " + c.Adress + " " + c.Phone_Numper);
+            }
+        }
+
+        public void Zapros_2()
+        {
+            var client = from p in db.Services
+                         join c in db.Clients on p.ClientId equals c.Id
+                         select new { c.Surname, c.Name, c.Adress, p.Name_Service };
+            foreach (var c in client)
+            {
+                Console.WriteLine(c.Surname + " " + c.Name + " " + c.Adress + " " + c.Name_Service);
+            }
+        }
+
+        public void Zapros_3()
+        {
+            var client = from p in db.Materials
+                         join c in db.Orders on p.OrderId equals c.Id
+                         join r in db.Clients on c.ClientId equals r.Id
+                         select new { r.Surname, r.Name, c.Adress, p.Name_Material, p.Sum };
+            foreach (var c in client)
+            {
+                Console.WriteLine(c.Surname + " " + c.Name + " " + c.Adress + " " + c.Name_Material + " " + c.Sum);
+            }
+        }
     }
 }

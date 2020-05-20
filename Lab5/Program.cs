@@ -1,6 +1,7 @@
 ﻿using Lab5.BusinessLogic;
 using Lab5.Serviсes;
 using System;
+using System.Diagnostics;
 
 namespace Lab5
 {
@@ -12,12 +13,20 @@ namespace Lab5
             MainLogic logic = new MainLogic(new ClientService(), new MaterialService(), new OrderService(), new ServiceSrvices(), new SuppliersService());
             //Insert(logic);
             //logic.ReadClient();
+            //logic.OrderClient();
+            //logic.ClientService();
+            //logic.ClientOrderMaterial();
+            Stopwatch clock = new Stopwatch();
+            clock.Start();
+            logic.h();
+            clock.Stop();
+            Console.WriteLine(clock.Elapsed.Seconds);
             //Console.WriteLine("Вставка завершилась");
+
         }
         public static void Insert(MainLogic logic)
         {
-
-            logic.CreateClient("Maxim","Kalyadin","Kievski 13", 12321);
+            /*logic.CreateClient("Maxim","Kalyadin","Kievski 13", 12321);
             logic.CreateClient("Dmitry", "Lagin", "Karbsheva", 34542);
             logic.CreateClient("Ivan", "Ivanov", "Ylyanovski prospect", 675849);
             logic.CreateClient("Vadim", "Smirnov", "Sozidateley 48", 98778);
@@ -45,7 +54,7 @@ namespace Lab5
             logic.CreateSupplier("name organization 23", "prospect 2", 5682);
             logic.CreateSupplier("name organization 2", "prospect 3", 457346);
             logic.CreateSupplier("name organization 54", "prospect 4", 98002);
-            logic.CreateSupplier("name organization 65", "prospect 5", 12440);
+            logic.CreateSupplier("name organization 65", "prospect 5", 12440);*/
         }
 
     }

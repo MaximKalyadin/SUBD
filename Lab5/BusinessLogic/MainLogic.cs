@@ -84,7 +84,6 @@ namespace Lab5.BusinessLogic
         public void ReadClient()
         {
             var list = clientService.Read();
-
             foreach (var p in list)
             {
                 Console.Write(p.Id + " " + p.Name + " " + p.Surname);
@@ -92,5 +91,24 @@ namespace Lab5.BusinessLogic
             }
         }
 
+        public void OrderClient()
+        {
+            clientService.OrderClientName();
+        }
+
+        public void ClientService()
+        {
+            clientService.Zapros_2();
+        }
+
+        public void ClientOrderMaterial()
+        {
+            clientService.Zapros_3();
+        }
+
+        public void h()
+        {
+            suppliersService.Zapros_4();
+        }
     }
 }

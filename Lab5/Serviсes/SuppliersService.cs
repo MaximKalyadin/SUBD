@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Lab5.Interface;
 using Lab5.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Lab5.Serviсes
 {
@@ -49,6 +50,27 @@ namespace Lab5.Serviсes
         public List<Supplier> Read()
         {
             return db.Suppliers.ToList();
+        }
+
+        public void Zapros_4()
+        {
+            var suppliers = db.Suppliers
+                .Include(s => s.Material)
+                .ToList()
+                .OrderByDescending(s => s.Material.Sum(m => m.Sum))
+                .GroupBy(s => s.Name_Organization)
+                .Take(10)
+                .Select(s => new
+                {
+                    NameOrg = s.Key,
+                    sum = s.ToList().Sum(s => s.Material.Sum(m => m.Sum))
+                }); 
+            foreach (var c in suppliers)
+            {
+                Console.WriteLine(c.NameOrg + " " + c.sum);
+            }
+
+                            
         }
     }
 }
