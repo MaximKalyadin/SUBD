@@ -35,6 +35,20 @@ namespace Lab5.BusinessLogic
             clientService.Create(client);
         }
 
+        public void UpdateClient(int Id, string Name, string Surname, string Adress, int Phone)
+        {
+            var list = clientService.Get(Id);
+            Client client = new Client()
+            {
+                Id = list.Id,
+                Name = Name,
+                Surname = Surname,
+                Adress = Adress,
+                Phone_Numper = Phone
+            };
+            clientService.Update(client);
+        }
+
         public void CreateMaterial(string Name, int Sum, int OrderId, int SupplierId)
         {
             Material material = new Material()
@@ -81,13 +95,103 @@ namespace Lab5.BusinessLogic
             suppliersService.Create(supplier);
         }
 
+        public void DeleteClient(string Name, string Surname, string Adress, int Phone)
+        {
+            Client client = new Client()
+            {
+                Name = Name,
+                Surname = Surname,
+                Adress = Adress,
+                Phone_Numper = Phone
+            };
+            clientService.Delete(client);
+        }
+
+        public void DeleteMaterial(string Name, int Sum, int OrderId, int SupplierId)
+        {
+            Material material = new Material()
+            {
+                Name_Material = Name,
+                Sum = Sum,
+                OrderId = OrderId,
+                SupplierId = SupplierId
+            };
+            materialService.Delete(material);
+        }
+
+        public void DeleteOrder(string Name, string Adress, DateTime date, int ClientId)
+        {
+            Order order = new Order()
+            {
+                Name_Order = Name,
+                Adress = Adress,
+                Data_of_Complection = date,
+                ClientId = ClientId
+            };
+            orderService.Delete(order);
+        }
+
+        public void DeleteService(string Name, int Sum, int ClientId)
+        {
+            Service service = new Service()
+            {
+                Name_Service = Name,
+                Sum = Sum,
+                ClientId = ClientId
+            };
+            serviceSrvices.Delete(service);
+        }
+
+        public void DeleteSupplier(string Name, string Adress, int Phone)
+        {
+            Supplier supplier = new Supplier()
+            {
+                Name_Organization = Name,
+                Adress = Adress,
+                Phone_Number = Phone
+            };
+            suppliersService.Delete(supplier);
+        }
+
         public void ReadClient()
         {
             var list = clientService.Read();
             foreach (var p in list)
             {
-                Console.Write(p.Id + " " + p.Name + " " + p.Surname);
-                Console.WriteLine();
+                Console.WriteLine(p.Id + " " + p.Name + " " + p.Surname);
+            }
+        }
+
+        public void ReadMaterial()
+        {
+            var list = materialService.Read();
+            foreach (var p in list)
+            {
+                Console.WriteLine(p.Name_Material + " " + p.Sum);
+            }
+        }
+
+        public void ReadOrder()
+        {
+            foreach (var p in orderService.Read())
+            {
+                Console.WriteLine(p.Name_Order + " " + p.Adress + " " + p.Data_of_Complection);
+            }
+        }
+
+        public void ReadService()
+        {
+            foreach (var p in serviceSrvices.Read())
+            {
+                Console.WriteLine(p.Name_Service + " " + p.Sum);
+            }
+        }
+
+        public void ReadSuppliers()
+        {
+            foreach (var p in suppliersService.Read())
+            {
+                Console.WriteLine(p.Name_Organization + " " + p.Adress);
             }
         }
 
@@ -98,7 +202,7 @@ namespace Lab5.BusinessLogic
 
         public void ClientService()
         {
-            clientService.Zapros_2();
+            clientService.zap_2();
         }
 
         public void ClientOrderMaterial()
@@ -106,9 +210,10 @@ namespace Lab5.BusinessLogic
             clientService.Zapros_3();
         }
 
-        public void h()
+        public void MaterialSupplier()
         {
             suppliersService.Zapros_4();
         }
+        
     }
 }

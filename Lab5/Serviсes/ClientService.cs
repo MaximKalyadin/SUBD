@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Lab5.Interface;
 using Lab5.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Lab5.Serviсes
 {
@@ -35,7 +36,7 @@ namespace Lab5.Serviсes
 
         public void Update(Client model)
         {
-            var client = db.Clients.FirstOrDefault(c => c.Name == model.Name);
+            var client = db.Clients.FirstOrDefault(c => c.Id == model.Id);
             if (client == null)
             {
                 throw new Exception("Такого клиента нет");
@@ -50,6 +51,11 @@ namespace Lab5.Serviсes
         public List<Client> Read()
         {
             return db.Clients.ToList();
+        }
+
+        public Client Get(int Id)
+        {
+            return db.Clients.FirstOrDefault(c => c.Id == Id);
         }
 
         public void OrderClientName()
@@ -72,6 +78,24 @@ namespace Lab5.Serviсes
             }
         }
 
+        public void zap_2()
+        {
+            var client = db.Services
+                .Join(db.Clients,
+                c => c.ClientId,
+                s => s.Id,
+                (c,s) => new
+                {
+                    s.Surname,
+                    s.Name,
+                    s.Adress,
+                    c.Name_Service
+                });
+            foreach (var c in client)
+            {
+                Console.WriteLine(c.Surname + " " + c.Name + " " + c.Adress + " " + c.Name_Service);
+            }
+        }
         public void Zapros_3()
         {
             var client = from p in db.Materials

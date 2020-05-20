@@ -25,7 +25,7 @@ namespace Lab5.Serviсes
 
         public void Update(Order model)
         {
-            var order = db.Orders.FirstOrDefault(c => c.Name_Order == model.Name_Order);
+            var order = db.Orders.FirstOrDefault(c => c.Id == model.Id);
             if (order == null)
             {
                 throw new Exception("Такого заказа нет");
@@ -50,6 +50,11 @@ namespace Lab5.Serviсes
         public List<Order> Read()
         {
             return db.Orders.ToList();
+        }
+
+        public Order Get(int Id)
+        {
+            return db.Orders.FirstOrDefault(c => c.Id == Id);
         }
     }
 }

@@ -16,11 +16,11 @@ namespace Lab5
             //logic.OrderClient();
             //logic.ClientService();
             //logic.ClientOrderMaterial();
-            Stopwatch clock = new Stopwatch();
+            /*Stopwatch clock = new Stopwatch();
             clock.Start();
             logic.h();
             clock.Stop();
-            Console.WriteLine(clock.Elapsed.Seconds);
+            Console.WriteLine(clock.Elapsed.Seconds);*/
             //Console.WriteLine("Вставка завершилась");
 
         }

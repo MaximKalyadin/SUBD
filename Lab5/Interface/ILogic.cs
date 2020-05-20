@@ -12,5 +12,6 @@ namespace Lab5.Interface
         void Update(T model);
         void Create(T model);
         void Delete(T model);
+        T Get(int Id);
     }
 }

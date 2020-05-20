@@ -36,7 +36,7 @@ namespace Lab5.Serviсes
 
         public void Update(Material model)
         {
-            var material = db.Materials.FirstOrDefault(c => c.Name_Material == model.Name_Material);
+            var material = db.Materials.FirstOrDefault(c => c.Id == model.Id);
             if (material == null)
             {
                 throw new Exception("Такого материала нет");
@@ -49,6 +49,11 @@ namespace Lab5.Serviсes
         public List<Material> Read()
         {
             return db.Materials.ToList();
+        }
+
+        public Material Get(int Id)
+        {
+            return db.Materials.FirstOrDefault(c => c.Id == Id);
         }
     }
 }

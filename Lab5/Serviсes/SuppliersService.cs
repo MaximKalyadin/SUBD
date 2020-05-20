@@ -52,6 +52,11 @@ namespace Lab5.Serviсes
             return db.Suppliers.ToList();
         }
 
+        public Supplier Get(int Id)
+        {
+            return db.Suppliers.FirstOrDefault(c => c.Id == Id);
+        }
+
         public void Zapros_4()
         {
             var suppliers = db.Suppliers

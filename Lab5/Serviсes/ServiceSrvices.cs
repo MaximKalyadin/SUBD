@@ -49,5 +49,10 @@ namespace Lab5.Serviсes
         {
             return db.Services.ToList();
         }
+
+        public Service Get(int Id)
+        {
+            return db.Services.FirstOrDefault(c => c.Id == Id);
+        }
     }
 }
