@@ -38,7 +38,7 @@ namespace Lab5.Serviсes
 
         public void Delete(Order model)
         {
-            var order = db.Orders.FirstOrDefault(c => c.Name_Order == model.Name_Order);
+            var order = db.Orders.FirstOrDefault(c => c.Id == model.Id);
             if (order == null)
             {
                 throw new Exception("Такого заказа нет");

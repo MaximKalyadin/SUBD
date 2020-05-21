@@ -25,18 +25,18 @@ namespace Lab5.Serviсes
 
         public void Delete(Supplier model)
         {
-            var supplier = db.Suppliers.FirstOrDefault(c => c.Name_Organization == model.Name_Organization);
+            var supplier = db.Suppliers.FirstOrDefault(c => c.Id == model.Id);
             if (supplier == null)
             {
                 throw new Exception("Такого поставщика нет");
             }
-            db.Suppliers.Remove(model);
+            db.Suppliers.Remove(supplier);
             db.SaveChanges();
         }
 
         public void Update(Supplier model)
         {
-            var supplier = db.Suppliers.FirstOrDefault(c => c.Name_Organization == model.Name_Organization);
+            var supplier = db.Suppliers.FirstOrDefault(c => c.Id == model.Id);
             if (supplier == null)
             {
                 throw new Exception("Такого поставщика нет");
@@ -73,9 +73,7 @@ namespace Lab5.Serviсes
             foreach (var c in suppliers)
             {
                 Console.WriteLine(c.NameOrg + " " + c.sum);
-            }
-
-                            
+            }              
         }
     }
 }

@@ -25,12 +25,12 @@ namespace Lab5.Serviсes
 
         public void Delete(Client model)
         {
-            var client = db.Clients.FirstOrDefault(c => c.Name == model.Name);
+            var client = db.Clients.FirstOrDefault(c => c.Id == model.Id);
             if (client == null)
             {
                 throw new Exception("Такого клиента нет");
             }
-            db.Clients.Remove(model);
+            db.Clients.Remove(client);
             db.SaveChanges();
         }
 
@@ -63,7 +63,7 @@ namespace Lab5.Serviсes
             var client = db.Clients.OrderBy(c => c.Surname);
             foreach (Client c in client)
             {
-                Console.Write(c.Surname + " " + c.Name + " " + c.Adress + " " + c.Phone_Numper);
+                Console.WriteLine(c.Surname + " " + c.Name + " " + c.Adress + " " + c.Phone_Numper);
             }
         }
 

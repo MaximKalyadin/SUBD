@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Lab5.Interface;
-using Lab5.Interface;
 using Lab5.Models;
 
 namespace Lab5.Serviсes
@@ -25,12 +24,12 @@ namespace Lab5.Serviсes
 
         public void Delete(Material model)
         {
-            var material = db.Materials.FirstOrDefault(c => c.Name_Material == model.Name_Material);
+            var material = db.Materials.FirstOrDefault(c => c.Id == model.Id);
             if (material == null)
             {
                 throw new Exception("Такого материала нет");
             }
-            db.Materials.Remove(model);
+            db.Materials.Remove(material);
             db.SaveChanges();
         }
 

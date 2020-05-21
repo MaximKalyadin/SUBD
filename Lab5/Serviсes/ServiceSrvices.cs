@@ -24,18 +24,18 @@ namespace Lab5.Serviсes
 
         public void Delete(Service model)
         {
-            var service = db.Services.FirstOrDefault(c => c.Name_Service == model.Name_Service);
+            var service = db.Services.FirstOrDefault(c => c.Id == model.Id);
             if (service == null)
             {
                 throw new Exception("Такоого сервиса нет");
             }
-            db.Services.Remove(model);
+            db.Services.Remove(service);
             db.SaveChanges();
         }
 
         public void Update(Service model)
         {
-            var service = db.Services.FirstOrDefault(c => c.Name_Service == model.Name_Service);
+            var service = db.Services.FirstOrDefault(c => c.Id == model.Id);
             if (service == null)
             {
                 throw new Exception("Такоого сервиса нет");

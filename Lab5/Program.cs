@@ -11,17 +11,19 @@ namespace Lab5
         static void Main(string[] args)
         {
             MainLogic logic = new MainLogic(new ClientService(), new MaterialService(), new OrderService(), new ServiceSrvices(), new SuppliersService());
-            //Insert(logic);
+
+            Stopwatch clock = new Stopwatch();
+            clock.Start();
+            //logic.CreateClient("Test", "Tester", "Yliza", 32123);
             //logic.ReadClient();
-            //logic.OrderClient();
+            //logic.UpdateClient(6, "T", "Tr", "hg", 1);
+            //logic.DeleteClient(6, "T", "Tr", "hg", 1);
             //logic.ClientService();
             //logic.ClientOrderMaterial();
-            /*Stopwatch clock = new Stopwatch();
-            clock.Start();
-            logic.h();
+            //logic.MaterialSupplier();
+            //logic.OrderClient();
             clock.Stop();
-            Console.WriteLine(clock.Elapsed.Seconds);*/
-            //Console.WriteLine("Вставка завершилась");
+            Console.WriteLine(clock.ElapsedMilliseconds);
 
         }
         public static void Insert(MainLogic logic)

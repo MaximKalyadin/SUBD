@@ -95,10 +95,11 @@ namespace Lab5.BusinessLogic
             suppliersService.Create(supplier);
         }
 
-        public void DeleteClient(string Name, string Surname, string Adress, int Phone)
+        public void DeleteClient(int Id,string Name, string Surname, string Adress, int Phone)
         {
             Client client = new Client()
             {
+                Id = Id,
                 Name = Name,
                 Surname = Surname,
                 Adress = Adress,
