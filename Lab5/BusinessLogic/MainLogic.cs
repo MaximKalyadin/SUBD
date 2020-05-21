@@ -108,10 +108,11 @@ namespace Lab5.BusinessLogic
             clientService.Delete(client);
         }
 
-        public void DeleteMaterial(string Name, int Sum, int OrderId, int SupplierId)
+        public void DeleteMaterial(int Id, string Name, int Sum, int OrderId, int SupplierId)
         {
             Material material = new Material()
             {
+                Id = Id,
                 Name_Material = Name,
                 Sum = Sum,
                 OrderId = OrderId,
@@ -120,10 +121,24 @@ namespace Lab5.BusinessLogic
             materialService.Delete(material);
         }
 
-        public void DeleteOrder(string Name, string Adress, DateTime date, int ClientId)
+        public void UpdateMaterial(int Id, string Name, int Sum, int OrderId, int SupplierId)
+        {
+            Material material = new Material()
+            {
+                Id = Id,
+                Name_Material = Name,
+                Sum = Sum,
+                OrderId = OrderId,
+                SupplierId = SupplierId
+            };
+            materialService.Update(material);
+        }
+
+        public void DeleteOrder(int Id, string Name, string Adress, DateTime date, int ClientId)
         {
             Order order = new Order()
             {
+                Id = Id,
                 Name_Order = Name,
                 Adress = Adress,
                 Data_of_Complection = date,
@@ -132,10 +147,24 @@ namespace Lab5.BusinessLogic
             orderService.Delete(order);
         }
 
-        public void DeleteService(string Name, int Sum, int ClientId)
+        public void UpdateOrder(int Id, string Name, string Adress, DateTime date, int ClientId)
+        {
+            Order order = new Order()
+            {
+                Id = Id,
+                Name_Order = Name,
+                Adress = Adress,
+                Data_of_Complection = date,
+                ClientId = ClientId
+            };
+            orderService.Update(order);
+        }
+
+        public void DeleteService(int Id, string Name, int Sum, int ClientId)
         {
             Service service = new Service()
             {
+                Id = Id,
                 Name_Service = Name,
                 Sum = Sum,
                 ClientId = ClientId
@@ -143,15 +172,40 @@ namespace Lab5.BusinessLogic
             serviceSrvices.Delete(service);
         }
 
-        public void DeleteSupplier(string Name, string Adress, int Phone)
+        public void UpdateService(int Id, string Name, int Sum, int ClientId)
+        {
+            Service service = new Service()
+            {
+                Id = Id,
+                Name_Service = Name,
+                Sum = Sum,
+                ClientId = ClientId
+            };
+            serviceSrvices.Update(service);
+        }
+
+        public void DeleteSupplier(int Id, string Name, string Adress, int Phone)
         {
             Supplier supplier = new Supplier()
             {
+                Id = Id,
                 Name_Organization = Name,
                 Adress = Adress,
                 Phone_Number = Phone
             };
             suppliersService.Delete(supplier);
+        }
+
+        public void UpdateSupplier(int Id, string Name, string Adress, int Phone)
+        {
+            Supplier supplier = new Supplier()
+            {
+                Id = Id,
+                Name_Organization = Name,
+                Adress = Adress,
+                Phone_Number = Phone
+            };
+            suppliersService.Update(supplier);
         }
 
         public void ReadClient()

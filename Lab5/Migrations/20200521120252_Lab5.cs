@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Lab5.Migrations
 {
-    public partial class lab5 : Migration
+    public partial class Lab5 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -110,6 +110,16 @@ namespace Lab5.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Clients_Name",
+                table: "Clients",
+                column: "Name");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Materials_Name_Material",
+                table: "Materials",
+                column: "Name_Material");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Materials_OrderId",
                 table: "Materials",
                 column: "OrderId");
@@ -128,6 +138,11 @@ namespace Lab5.Migrations
                 name: "IX_Services_ClientId",
                 table: "Services",
                 column: "ClientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Suppliers_Name_Organization",
+                table: "Suppliers",
+                column: "Name_Organization");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

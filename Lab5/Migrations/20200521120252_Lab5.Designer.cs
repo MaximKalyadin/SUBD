@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lab5.Migrations
 {
     [DbContext(typeof(SubdLab5DataBase))]
-    [Migration("20200519174602_lab5")]
-    partial class lab5
+    [Migration("20200521120252_Lab5")]
+    partial class Lab5
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,7 +34,7 @@ namespace Lab5.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Phone_Numper")
                         .HasColumnType("int");
@@ -44,6 +44,8 @@ namespace Lab5.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name");
 
                     b.ToTable("Clients");
                 });
@@ -57,7 +59,7 @@ namespace Lab5.Migrations
 
                     b.Property<string>("Name_Material")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
@@ -69,6 +71,8 @@ namespace Lab5.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name_Material");
 
                     b.HasIndex("OrderId");
 
@@ -142,12 +146,14 @@ namespace Lab5.Migrations
 
                     b.Property<string>("Name_Organization")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Phone_Number")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name_Organization");
 
                     b.ToTable("Suppliers");
                 });

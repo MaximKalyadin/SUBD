@@ -11,7 +11,7 @@ namespace Lab5
         static void Main(string[] args)
         {
             MainLogic logic = new MainLogic(new ClientService(), new MaterialService(), new OrderService(), new ServiceSrvices(), new SuppliersService());
-
+            Insert(logic);
             Stopwatch clock = new Stopwatch();
             clock.Start();
             //logic.CreateClient("Test", "Tester", "Yliza", 32123);
@@ -21,7 +21,7 @@ namespace Lab5
             //logic.ClientService();
             //logic.ClientOrderMaterial();
             //logic.MaterialSupplier();
-            //logic.OrderClient();
+            logic.OrderClient();
             clock.Stop();
             Console.WriteLine(clock.ElapsedMilliseconds);
 
@@ -46,17 +46,19 @@ namespace Lab5
             logic.CreateOrder("zakaz 4", "bulvar 6", DateTime.Parse("3.11.2019"), 4);
             logic.CreateOrder("zakaz 5", "bulvar 22", DateTime.Parse("14.11.2018"), 5);
 
-            logic.CreateMaterial("material 1", 4500, 1, 1);
-            logic.CreateMaterial("material 2", 100, 2, 2);
-            logic.CreateMaterial("material 3", 8000, 3, 3);
-            logic.CreateMaterial("material 4", 5560, 4, 4);
-            logic.CreateMaterial("material 5", 3277, 5, 5);
-
             logic.CreateSupplier("name organization 1", "prospect 1", 43215);
             logic.CreateSupplier("name organization 23", "prospect 2", 5682);
             logic.CreateSupplier("name organization 2", "prospect 3", 457346);
             logic.CreateSupplier("name organization 54", "prospect 4", 98002);
-            logic.CreateSupplier("name organization 65", "prospect 5", 12440);*/
+            logic.CreateSupplier("name organization 65", "prospect 5", 12440);
+
+            logic.CreateMaterial("material 1", 4500, 1, 1);
+            logic.CreateMaterial("material 2", 100, 2, 2);
+            logic.CreateMaterial("material 3", 8000, 3, 3);
+            logic.CreateMaterial("material 4", 5560, 4, 4);
+            logic.CreateMaterial("material 5", 3277, 5, 5);*/
+
+
         }
 
     }

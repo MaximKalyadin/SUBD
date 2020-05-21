@@ -17,12 +17,12 @@ namespace Lab5
             base.OnConfiguring(optionsBuilder);
         }
 
-        /*protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Client>().HasIndex(c => c.Name);
             modelBuilder.Entity<Supplier>().HasIndex(c => c.Name_Organization);
             modelBuilder.Entity<Material>().HasIndex(c => c.Name_Material);
-        }*/
+        }
         public virtual DbSet<Client> Clients { set; get; }
         public virtual DbSet<Service> Services { set; get; }
         public virtual DbSet<Material> Materials { set; get; }

@@ -32,7 +32,7 @@ namespace Lab5.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Phone_Numper")
                         .HasColumnType("int");
@@ -42,6 +42,8 @@ namespace Lab5.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name");
 
                     b.ToTable("Clients");
                 });
@@ -55,7 +57,7 @@ namespace Lab5.Migrations
 
                     b.Property<string>("Name_Material")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
@@ -67,6 +69,8 @@ namespace Lab5.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name_Material");
 
                     b.HasIndex("OrderId");
 
@@ -140,12 +144,14 @@ namespace Lab5.Migrations
 
                     b.Property<string>("Name_Organization")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Phone_Number")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name_Organization");
 
                     b.ToTable("Suppliers");
                 });
